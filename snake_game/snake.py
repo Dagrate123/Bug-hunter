@@ -156,6 +156,9 @@ def game_loop(win):
         head_y, head_x = snake[0]
         new_head = (head_y + direction[0], head_x + direction[1])
 
+        if (new_direction[0] == -direction[0] and new_direction[1] == -direction[1]):
+            new_direction = direction
+
         # Check wall collision
         if not (new_head[0] >= 1 and new_head[0] <= HEIGHT - 1 and new_head[1] >= 1 and new_head[1] <= WIDTH - 1):
             return score, False, "crashed into a wall"
